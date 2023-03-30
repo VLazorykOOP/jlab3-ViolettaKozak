@@ -1,30 +1,26 @@
-class Complex extends Pair {
+public class Ccomplex implements Ppair{
     double real, imagine;
-
-    Complex() {
-        this(2.3, 5.1);
-    }
-
-    Complex(double r, double i) {
+    Ccomplex(){this(2.3, 4.1);}
+    Ccomplex(double r, double i) {
         real = Math.round(r * 100.0)/100.0;
         imagine = Math.round(i * 100.0)/100.0;
     }
 
-    public Pair add(Pair other) {
-        Complex o = (Complex) other;
-        return new Complex(this.real + o.real, this.imagine + o.imagine);
+    public Ppair add(Ppair other) {
+        Ccomplex o = (Ccomplex) other;
+        return new Ccomplex(this.real + o.real, this.imagine + o.imagine);
     }
 
-    public Pair subtract(Pair other){
-        Complex o = (Complex) other;
-        return new Complex(this.real - o.real, this.imagine - o.imagine);
+    public Ppair subtract(Ppair other){
+        Ccomplex o = (Ccomplex) other;
+        return new Ccomplex(this.real - o.real, this.imagine - o.imagine);
     }
 
-    public Pair multiply(Pair other){
-        Complex o = (Complex) other;
+    public Ppair multiply(Ppair other){
+        Ccomplex o = (Ccomplex) other;
         double newReal = this.real * o.real - this.imagine * o.imagine;
         double newImagine = this.real * o.imagine + this.imagine * o.real;
-        return new Complex(newReal, newImagine);
+        return new Ccomplex(newReal, newImagine);
     }
 
     @Override
@@ -41,7 +37,7 @@ class Complex extends Pair {
         if (other.getClass() != this.getClass() || other == null) {
             return false;
         }
-        Complex o = (Complex) other;
+        Ccomplex o = (Ccomplex) other;
         return (this.real == o.real)&& (this.imagine == o.imagine);
     }
 

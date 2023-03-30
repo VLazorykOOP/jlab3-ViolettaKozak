@@ -1,33 +1,31 @@
-import org.jetbrains.annotations.NotNull;
-
-public class Rational extends Pair{
+public class Rrational implements Ppair{
     int numerator, denominator;
 
-    public Rational(){this(3, 5);}
-    public Rational(int numerator, int denominator) {
+    public Rrational(){this(3, 5);}
+    public Rrational(int numerator, int denominator) {
         this.numerator = numerator;
         this.denominator = denominator;
     }
 
-    public Pair add(Pair other) {
-        Rational r = (Rational) other;
+    public Ppair add(Ppair other) {
+        Rrational r = (Rrational) other;
         int newNumerator = this.numerator * r.denominator + r.numerator * this.denominator;
         int newDenominator = this.denominator * r.denominator;
-        return new Rational(newNumerator, newDenominator);
+        return new Rrational(newNumerator, newDenominator);
     }
 
-    public Pair subtract(Pair other) {
-        Rational r = (Rational) other;
+    public Ppair subtract(Ppair other) {
+        Rrational r = (Rrational) other;
         int newNumerator = this.numerator * r.denominator - r.numerator * this.denominator;
         int newDenominator = this.denominator * r.denominator;
-        return new Rational(newNumerator, newDenominator);
+        return new Rrational(newNumerator, newDenominator);
     }
 
-    public Pair multiply(Pair other) {
-        Rational r = (Rational) other;
+    public Ppair multiply(Ppair other) {
+        Rrational r = (Rrational) other;
         int newNumerator = this.numerator * r.numerator;
         int newDenominator = this.denominator * r.denominator;
-        return new Rational(newNumerator, newDenominator);
+        return new Rrational(newNumerator, newDenominator);
     }
 
     @Override
@@ -37,7 +35,7 @@ public class Rational extends Pair{
 
 
     public boolean equals(Object other){
-        Rational o = (Rational) other;
+        Rrational o = (Rrational) other;
         if (o.numerator % this.numerator == 0){
             int k = o.numerator /this.numerator;
             return this.denominator * k == o.denominator;
@@ -50,4 +48,3 @@ public class Rational extends Pair{
         return false;
     }
 }
-
